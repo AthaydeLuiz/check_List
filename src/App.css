@@ -1,0 +1,17 @@
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 2px solid rgb(60, 228, 110);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600px;
+
+  font: normal arial;
+}
+
+body {
+  background: rgb(42, 42, 42);
+}
