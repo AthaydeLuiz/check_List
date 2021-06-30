@@ -8,25 +8,26 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import TaskDetails from './components/TaskDetails';
 
-import "./App.css";
+import "./components/components_style/App.css";
 
 const App = () => {
   const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      title: "Estudo",
-      completed: false,
-    },
-    {
-      id: "2",
-      title: "Ler Livros",
-      completed: true,
-    },
+    // {
+    //   id: "1",
+    //   title: "Estudo",
+    //   completed: false,
+    // },
+    // {
+    //   id: "2",
+    //   title: "Ler Livros",
+    //   completed: true,
+    // },
   ]);
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const { data } = await axios.get('https://jsonplaceholder.cypress.io/todos?_limit=10');
+      const { data } = await axios.get('http://localhost:2707/');
+      console.log(data)
       setTasks(data);
     };
     fetchTasks();
@@ -49,6 +50,7 @@ const App = () => {
         title: taskTitle,
         id: uuidv4(),
         completed: false,
+        taskDetail: ""
       },
     ];
 
