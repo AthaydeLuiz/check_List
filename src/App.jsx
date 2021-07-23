@@ -35,8 +35,8 @@ const App = () => {
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
-      if (task.id == taskId) return { ...task, completed: !task.completed }
-
+      if (task.id === taskId) return { ...task, completed: !task.completed }
+      
       return task;
     });
 

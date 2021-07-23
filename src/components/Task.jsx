@@ -1,5 +1,5 @@
 import React from 'react';
-import { CgClose, CgInfo } from 'react-icons/cg';
+import { CgClose, CgInfo, } from 'react-icons/cg';
 import { useHistory } from 'react-router-dom';
 
 import './components_style/Task.css';
@@ -33,7 +33,7 @@ const Task = ({ task, handleTaskClick, handleTaskDeletion }) => {
                 >
                     <CgInfo />
                 </button>
-
+                
             </div>
         </div>
     );
