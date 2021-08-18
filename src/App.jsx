@@ -11,23 +11,12 @@ import TaskDetails from './components/TaskDetails';
 import "./components/components_style/App.css";
 
 const App = () => {
-  const [tasks, setTasks] = useState([
-    // {
-    //   id: "1",
-    //   title: "Estudo",
-    //   completed: false,
-    // },
-    // {
-    //   id: "2",
-    //   title: "Ler Livros",
-    //   completed: true,
-    // },
-  ]);
+  const [tasks, setTasks] = useState(null);
 
   useEffect(() => {
     const fetchTasks = async () => {
       const { data } = await axios.get('http://localhost:2707/');
-      console.log(data)
+      // 'console'.log(data)
       setTasks(data);
     };
     fetchTasks();
@@ -36,7 +25,6 @@ const App = () => {
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) return { ...task, completed: !task.completed }
-      
       return task;
     });
 
@@ -44,8 +32,7 @@ const App = () => {
   };
 
   const handleTaskAddition = (taskTitle) => {
-    const newTasks = [
-      ...tasks,
+    const newTasks = [...tasks,
       {
         title: taskTitle,
         id: uuidv4(),
@@ -54,7 +41,9 @@ const App = () => {
       },
     ];
 
+    
     setTasks(newTasks);
+    
   };
 
   const handleTaskDeletion = (taskId) => {
@@ -65,7 +54,8 @@ const App = () => {
 
   return (
     <Router>
-
+        {
+      tasks &&            
       <div className="container">
         <Header />
         <Route
@@ -85,6 +75,7 @@ const App = () => {
         <Route path="/:TaskTitle" exact component={TaskDetails} />
 
       </div>
+        }
     </Router>
   );
 };
